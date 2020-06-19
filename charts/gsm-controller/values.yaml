@@ -9,6 +9,8 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 
+credentialsSecret:
+
 # define environment variables here as a map of key: value
 env:
 
