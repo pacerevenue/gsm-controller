@@ -9,6 +9,10 @@ spec:
     spec:
       template:
         spec:
+          volumes:
+          - name: google-cloud-key
+            secret:
+              secretName: pubsub-key
           containers:
           - name: {{ .Chart.Name }}
             image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -21,6 +25,15 @@ spec:
               - "{{ .Values.projectID }}"
           restartPolicy: Never
           serviceAccountName: gsm-sa
+          volumeMounts:
+          - name: google-cloud-key
+            mountPath: /var/secrets/google
+          env:
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            value: /var/secrets/google/key.json
+          env:
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            value: /var/secrets/google/key.json
   schedule: "{{ .Values.cron.schedule }}"
   successfulJobsHistoryLimit: 3
   suspend: false
