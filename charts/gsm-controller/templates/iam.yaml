@@ -3,12 +3,12 @@ kind: IAMServiceAccount
 metadata:
   name: {{ .Values.iamServiceAccountName }}
 spec:
-  displayName: Service account for Secret Manager Controller example
+  displayName: Service account for Secret Manager Controller
 ---
 apiVersion: iam.cnrm.cloud.google.com/v1beta1
 kind: IAMPolicyMember
 metadata:
-  name: policy-member-binding
+  name: {{ .Values.iamServiceAccountName }}-secret-accessor
 spec:
   member: serviceAccount:{{ .Values.iamServiceAccountName }}@paceup-main.iam.gserviceaccount.com
   role: roles/secretmanager.secretAccessor
