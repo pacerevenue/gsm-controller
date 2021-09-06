@@ -2,4 +2,4 @@ apiVersion: v1
 description: A Helm chart for Kubernetes
 name: gsm-controller
 version: 0.1.0
-home: https://github.com/findpace/gsm-controller
+home: https://github.com/pacerevenue/gsm-controller
