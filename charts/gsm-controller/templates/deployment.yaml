@@ -24,7 +24,7 @@ spec:
       volumes:
       - name: google-cloud-key
         secret:
-          secretName: {{ .Values.credentialsSecret }}
+          secretName: {{ .Values.iamServiceAccountName }}
       containers:
       - name: {{ .Chart.Name }}
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
