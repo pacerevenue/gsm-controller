@@ -9,6 +9,7 @@ image:
   tag: dev
   pullPolicy: IfNotPresent
 
+terminationGracePeriodSeconds: 30
 iamServiceAccountName:
 
 # define environment variables here as a map of key: value
